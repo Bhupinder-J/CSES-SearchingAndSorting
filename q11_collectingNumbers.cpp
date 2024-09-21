@@ -28,3 +28,4 @@ int32_t main(){
         count += a[i].second < a[i-1].second;
     }
     cout << count << endl;
+}
