@@ -11,6 +11,7 @@
 #define vi vector<int>
 #define vvi vector<vi>
 #define pii pair<int, int>
+#define all(x) begin(x), end(x)
 
 using namespace std;
 
@@ -19,13 +20,13 @@ const int M = 1e9 + 7;
 
 int32_t main(){
     int n; cin >> n;
-    multiset<int> st;
+    vector<int> st;
     for(int i=0 ; i<n ; i++){
         int x; cin >> x;
-        auto it = st.upper_bound(x);
-        if(it != st.end()) 
-            st.erase(it);
-        st.insert(x);
+        auto it = upper_bound(all(st), x);
+        if(it == st.end()) 
+            st.push_back(x);
+        else *it = x;
     }
     cout << st.size() << endl;
 }
